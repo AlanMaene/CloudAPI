@@ -1,4 +1,5 @@
 ﻿
+using Cocktail_API.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace Model
@@ -11,5 +12,7 @@ namespace Model
 
         public DbSet<Cocktail> Cocktails { get; set; }
         public DbSet<Bartender> Bartenders { get; set; }
+        public DbSet<Ingredient> Ingredients { get; set; }
+        public DbSet<Measurements> Measurements { get; set; }
     }
 }
