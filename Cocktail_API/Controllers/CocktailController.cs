@@ -16,21 +16,43 @@ namespace Cocktail_API.Controllers
             this.recipesContext = _context;
         }
         [HttpPost]
-        public IActionResult CreateBartender([FromBody] Cocktail newCocktail)
+        public IActionResult CreateCocktail([FromBody] Cocktail newCocktail)
         {
             
             recipesContext.Cocktails.Add(newCocktail);
             recipesContext.SaveChanges();
             return Created("", newCocktail);
         }
+        [HttpPut] 
+        public IActionResult UpdateCocktail([FromBody] Cocktail cocktail)
+        {
+            var orgCocktail = recipesContext.Cocktails.Find(cocktail.Id);
+            if (orgCocktail == null)
+                return NotFound();
+
+            orgCocktail.Name = cocktail.Name;
+            orgCocktail.Instructions = cocktail.Instructions;
+            orgCocktail.Inventor = cocktail.Inventor;
+            orgCocktail.Measurements = cocktail.Measurements;
+            recipesContext.SaveChanges();
+            return Ok(orgCocktail);
+            
+        }
+        [Route("{id}")]
+        [HttpDelete]
+        public IActionResult DeleteCocktail(int id)
+        {
+            var cocktail = recipesContext.Cocktails.Find(id);
+            if (cocktail == null)
+                return NotFound();
+            recipesContext.Cocktails.Remove(cocktail);
+            recipesContext.SaveChanges();
+            return NoContent();
+        }
         [Route("{id}")]
         [HttpGet]
         public IActionResult getCocktailsFromBartender(int id)
         {
-
-            //List<Cocktail> cocktails = context.Cocktails;
-
-            //var cocktail = context.Cocktails.Include(d => d.Inventor).Where(d => d.Inventor == context.Bartenders.Find(id));
             var cocktail = recipesContext.Cocktails.Where(d => d.Inventor == recipesContext.Bartenders.Find(id));
             if (cocktail == null)
                 return NotFound();
@@ -75,14 +97,5 @@ namespace Cocktail_API.Controllers
 
             return query ;
         }
-        /*
-        [HttpGet]
-        public List<Measurements> getCocktails(string name)
-        {
-            IQueryable<Measurements> query = recipesContext.Measurements.Include(d => d.cocktail).Include(d=> d.ingredient);
-
-
-            return query.ToList();
-        }*/
     }
 }

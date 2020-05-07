@@ -13,11 +13,30 @@ namespace Cocktail_API.Controllers
         public BartenderController(RecipesContext context) {
             this.context = context;
         }
-        /*[HttpGet]
-        public List<Bartender> GetAllBartenders()
+        [HttpDelete]
+        public IActionResult Delete(int id)
         {
-            return context.Bartenders.ToList();
-        }*/
+            var bartender = context.Bartenders.Find(id);
+
+            if (bartender == null)
+                return NotFound();
+
+            context.Bartenders.Remove(bartender);
+            context.SaveChanges();
+            return NoContent();
+        }
+        [HttpPut]
+        public IActionResult UpdateCocktail([FromBody] Bartender bartender)
+        {
+            var orgBartender = context.Bartenders.Find(bartender.Id);
+            if (orgBartender == null)
+                return NotFound();
+
+            orgBartender.Name = bartender.Name;
+            orgBartender.Desciption = bartender.Desciption;
+            context.SaveChanges();
+            return Ok(orgBartender);
+        }
         [HttpPost]
         public IActionResult CreateBartender([FromBody] Bartender newBartender)
         {
