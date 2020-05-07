@@ -16,11 +16,12 @@ namespace Cocktail_API.Controllers
             this.recipesContext = _context;
         }
         [HttpPost]
-        public IActionResult CreateBartender([FromBody] Bartender newBartender)
+        public IActionResult CreateBartender([FromBody] Cocktail newCocktail)
         {
-            recipesContext.Bartenders.Add(newBartender);
+            
+            recipesContext.Cocktails.Add(newCocktail);
             recipesContext.SaveChanges();
-            return Created("", newBartender);
+            return Created("", newCocktail);
         }
         [Route("{id}")]
         [HttpGet]
