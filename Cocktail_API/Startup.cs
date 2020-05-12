@@ -12,11 +12,14 @@ using Microsoft.Extensions.Hosting;
 using Model;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Cocktail_API
 {
     public class Startup
     {
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -34,6 +37,23 @@ namespace Cocktail_API
                     )
             );
 
+            services.AddCors(o => o.AddPolicy(name: MyAllowSpecificOrigins, builder =>
+               {
+                   builder
+                   .AllowAnyOrigin()
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+               }));
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                options.Authority = "accounts.google.com";
+                options.Audience = "998171199839-2061ud931cfaqgckitsfimod47c8nkhn.apps.googleusercontent.com";
+                options.RequireHttpsMetadata = false;
+                
+            });
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,13 +64,17 @@ namespace Cocktail_API
                 app.UseDeveloperExceptionPage();
             }
 
+            
             //app.UseHttpsRedirection();
 
             app.UseRouting();
 
-            //app.UseAuthentication();
 
-            //app.UseAuthorization();
+            app.UseCors(MyAllowSpecificOrigins);
+
+            app.UseAuthentication();
+
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

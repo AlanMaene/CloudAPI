@@ -1,4 +1,5 @@
 ﻿using Cocktail_API.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Model;
@@ -8,6 +9,7 @@ using System.Linq;
 namespace Cocktail_API.Controllers
 {
     [Route("api/v1/cocktails")]
+    [ApiController]
     public class CocktailController : Controller
     {
         private readonly RecipesContext recipesContext;
@@ -49,6 +51,8 @@ namespace Cocktail_API.Controllers
             recipesContext.SaveChanges();
             return NoContent();
         }
+        
+        
         [Route("{id}")]
         [HttpGet]
         public IActionResult getCocktailsFromBartender(int id)
@@ -59,6 +63,7 @@ namespace Cocktail_API.Controllers
             return Ok(cocktail);
         }
         //[Route("byName")]
+        [Authorize]
         [HttpGet]
         public  IQueryable getCocktails(string name, string sort, string dir = "asc")
         {
