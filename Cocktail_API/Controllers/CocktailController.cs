@@ -23,12 +23,47 @@ namespace Cocktail_API.Controllers
             this.recipesContext = _context;
         }
         [HttpPost]
-        public IActionResult CreateCocktail([FromBody] Cocktail newCocktail)
+        public string CreateCocktail([FromBody] Cocktail newCocktail)
         {
+            IQueryable<Cocktail> queryCocktail = recipesContext.Cocktails.Where(d => d.Name == newCocktail.Name);
+            if (queryCocktail.Count() == 0)
+            {
+                IQueryable<Bartender> query = recipesContext.Bartenders.Where(d => d.Name == newCocktail.Inventor.Name);
+
+                if (query.Count() != 0)
+                {
+                    Bartender bar = query.First();
+                    newCocktail.Inventor = bar;
+                }
+
+                for (int i = 0; i < newCocktail.Measurements.Count(); i++)
+                {
+                    IQueryable<Ingredient> queryIngredient = recipesContext.Ingredients.Where(d => d.Name == newCocktail.Measurements[i].ingredient.Name);
+                    if (queryIngredient.Count() != 0)
+                    {
+                        newCocktail.Measurements[i].ingredient = queryIngredient.First();
+                    }
+
+                    IQueryable<Measurements> queryMeasurements = recipesContext.Measurements.Where(d => d.ingredient.Name == newCocktail.Measurements[i].ingredient.Name).Where(d => d.measurements == newCocktail.Measurements[i].measurements);
+                    if(queryMeasurements.Count() != 0)
+                    {
+                        newCocktail.Measurements[i] = queryMeasurements.First();
+                    }
+                }
+
+
+                recipesContext.Cocktails.Add(newCocktail);
+                recipesContext.SaveChanges();
+            }
+            else
+            {
+
+            }
+            return "";
 
             recipesContext.Cocktails.Add(newCocktail);
             recipesContext.SaveChanges();
-            return Created("", newCocktail);
+            //return Created(query.Count().ToString(), newCocktail);
         }
         [HttpPut]
         public IActionResult UpdateCocktail([FromBody] Cocktail cocktail)
