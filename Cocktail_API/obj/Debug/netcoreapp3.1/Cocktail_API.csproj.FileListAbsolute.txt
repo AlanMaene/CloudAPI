@@ -132,4 +132,10 @@ C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Debug\ne
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Debug\netcoreapp3.1\Google.Apis.dll
+C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Debug\netcoreapp3.1\Google.Apis.Auth.PlatformServices.dll
+C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Debug\netcoreapp3.1\Google.Apis.Auth.dll
+C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Debug\netcoreapp3.1\Google.Apis.Core.dll
+C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Google.dll
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\obj\Debug\netcoreapp3.1\Cocktail_API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Debug\netcoreapp3.1\System.Web.Providers.dll

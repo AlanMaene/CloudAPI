@@ -14,11 +14,14 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authentication.Google;
+using System;
 
 namespace Cocktail_API
 {
     public class Startup
     {
+        private readonly RecipesContext recipesContext;
         readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
@@ -44,17 +47,44 @@ namespace Cocktail_API
                    .AllowAnyMethod()
                    .AllowAnyHeader();
                }));
-
+            
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
-                options.Authority = "accounts.google.com";
-                options.Audience = "998171199839-2061ud931cfaqgckitsfimod47c8nkhn.apps.googleusercontent.com";
-                options.RequireHttpsMetadata = false;
-                
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = Configuration["Jwt:Issuer"],
+                    ValidAudience = Configuration["Jwt:Issuer"],
+                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+                };
+                //options.Authority = "https://accounts.google.com";
+
+                //options.Audience = "998171199839-2061ud931cfaqgckitsfimod47c8nkhn.apps.googleusercontent.com";
+                ////options.requirehttpsmetadata = false;
+
             });
+            /*
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                options.Audience = this.recipesContext.Cocktails;
+            });*/
+
+                //services.AddAuthentication(options =>
+                //{
+                //    options.DefaultAuthenticateScheme = GoogleDefaults.AuthenticationScheme;
+                //    options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
+                //})
+                //.AddGoogle(options =>
+                //{
+                //    options.ClientId = "998171199839-2061ud931cfaqgckitsfimod47c8nkhn.apps.googleusercontent.com";
+                //    options.ClientSecret = "mEsW0g5jL5uxhgv0WAdBQiiG";
+                //});
 
 
-        }
+            }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, RecipesContext recContext)
