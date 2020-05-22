@@ -103,7 +103,7 @@ namespace Cocktail_API.Controllers
             return Ok(cocktail);
         }
         //[Route("byName")]
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         public IQueryable getCocktails(string name, string sort, string dir = "asc")
         {
