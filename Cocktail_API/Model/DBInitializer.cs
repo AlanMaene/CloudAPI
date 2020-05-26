@@ -33,7 +33,7 @@ namespace Model
             var measure = new Measurements()
             {
                 ingredient = ingr,
-                measurements = 60,
+                measurements = "60 ml",
             };
             context.Add(measure);
             measurements.Add(measure);
@@ -47,7 +47,7 @@ namespace Model
             measure = new Measurements()
             {
                 ingredient = ingr,
-                measurements = 30,
+                measurements = "30 ml",
             };
             context.Add(measure);
             measurements.Add(measure);
@@ -61,7 +61,7 @@ namespace Model
             measure = new Measurements()
             {
                 ingredient = ingr,
-                measurements = 15,
+                measurements = "15 ml",
             };
             context.Add(measure);
             measurements.Add(measure);
@@ -75,7 +75,7 @@ namespace Model
             measure = new Measurements()
             {
                 ingredient = ingr,
-                measurements = 60,
+                measurements = "60 ml",
             };
             context.Add(measure);
             measurements.Add(measure);
@@ -89,7 +89,7 @@ namespace Model
             measure = new Measurements()
             {
                 ingredient = ingr,
-                measurements = 30,
+                measurements = "30 ml",
             };
             context.Add(measure);
             measurements.Add(measure);
@@ -103,7 +103,7 @@ namespace Model
             measure = new Measurements()
             {
                 ingredient = ingr,
-                measurements = 15,
+                measurements = "15 ml",
             };
             context.Add(measure);
             measurements.Add(measure);
@@ -117,7 +117,7 @@ namespace Model
             measure = new Measurements()
             {
                 ingredient = ingr,
-                measurements = 15,
+                measurements = "15 ml",
 
             };
             context.Add(measure);
@@ -151,7 +151,7 @@ namespace Model
              measure = new Measurements()
             {
                 ingredient = ingr,
-                measurements = 30,
+                measurements = "30 ml",
             };
             context.Add(measure);
             measurements.Add(measure);
@@ -165,7 +165,7 @@ namespace Model
             measure = new Measurements()
             {
                 ingredient = ingr,
-                measurements = 30,
+                measurements = "30 ml",
             };
             context.Add(measure);
             measurements.Add(measure);
@@ -179,7 +179,7 @@ namespace Model
             measure = new Measurements()
             {
                 ingredient = ingr,
-                measurements = 15,
+                measurements = "15 ml",
             };
             context.Add(measure);
             measurements.Add(measure);
@@ -187,7 +187,7 @@ namespace Model
             measure = new Measurements()
             {
                 ingredient = context.Ingredients.Where(d=> d.Name == "Orgeat syrup").ToArray()[0],
-                measurements = 7.5,
+                measurements = "7.5 ml",
             };
             context.Add(measure);
             measurements.Add(measure);
@@ -201,7 +201,7 @@ namespace Model
             measure = new Measurements()
             {
                 ingredient = ingr,
-                measurements = 7.5,
+                measurements = "7.5 ml",
             };
             context.Add(measure);
             measurements.Add(measure);
@@ -215,7 +215,7 @@ namespace Model
             measure = new Measurements()
             {
                 ingredient = ingr,
-                measurements = 30,
+                measurements = "30 ml",
             };
             context.Add(measure);
             measurements.Add(measure);

@@ -13,6 +13,6 @@ namespace Cocktail_API.Model
         public int Id { get; set; }
         //public Cocktail cocktail { get; set; }
         public Ingredient ingredient { get; set; }
-        public double measurements { get; set; }
+        public String measurements { get; set; }
     }
 }

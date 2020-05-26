@@ -6,7 +6,7 @@ namespace Model
 {
     public class Cocktail
     {
-        [JsonIgnore]
+       
         public int Id { get; set; }
         public string Name { get; set; }
         public string Instructions { get; set; }
