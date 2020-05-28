@@ -23,7 +23,7 @@ namespace Cocktail_API.Controllers
             this.recipesContext = _context;
         }
         [HttpPost]
-        public string CreateCocktail([FromBody] Cocktail newCocktail)
+        public IActionResult CreateCocktail([FromBody] Cocktail newCocktail)
         {
             IQueryable<Cocktail> queryCocktail = recipesContext.Cocktails.Where(d => d.Name == newCocktail.Name);
             if (queryCocktail.Count() == 0)
@@ -57,45 +57,70 @@ namespace Cocktail_API.Controllers
             }
             else
             {
-
+                return NotFound();
             }
-            return "";
+            //return "";
 
-            recipesContext.Cocktails.Add(newCocktail);
-            recipesContext.SaveChanges();
-            //return Created(query.Count().ToString(), newCocktail);
+            //recipesContext.Cocktails.Add(newCocktail);
+            //recipesContext.SaveChanges();
+            return Created("", newCocktail);
         }
         [HttpPut]
         public IActionResult UpdateCocktail([FromBody] Cocktail cocktail)
         {
-            var orgCocktail = recipesContext.Cocktails.Find(cocktail.Id);
+            var orgCocktail = recipesContext.Cocktails.Where(d=> d.Id == cocktail.Id).Include(cocktail => cocktail.Measurements).ThenInclude(d => d.ingredient).First();
             if (orgCocktail == null)
                 return NotFound();
             
             if(cocktail.Name != null) orgCocktail.Name = cocktail.Name;
             if (cocktail.Instructions != null) orgCocktail.Instructions = cocktail.Instructions;
             if (cocktail.Inventor != null) orgCocktail.Inventor = cocktail.Inventor;
-            
-            /*
-            for(int i = 0; i < cocktail.Measurements.Count(); i++)
+
+            for (int i = 0; i < cocktail.Measurements.Count(); i++)
             {
                 bool allowedToAdd = true;
-                for (int k=0 ; k<orgCocktail.Measurements.Count() ; k++){
+                for (int k = 0; k < orgCocktail.Measurements.Count(); k++)
+                {
                     if (cocktail.Measurements[i].ingredient.Name == orgCocktail.Measurements[k].ingredient.Name)
                     {
-                        //only change the number of measurement
-                        cocktail.Measurements[i].measurements = orgCocktail.Measurements[k].measurements;
+                        orgCocktail.Measurements[k].measurements = cocktail.Measurements[i].measurements;
                         allowedToAdd = false;
                     }
                 }
-                if(allowedToAdd == true)
+                if (allowedToAdd == true)
                 {
                     orgCocktail.Measurements.Add(cocktail.Measurements[i]);
                 }
+                /*
+                for(int l = 0; l < orgCocktail.Measurements.Count() - cocktail.Measurements.Count(); l++)
+                {
+                    recipesContext.Remove(orgCocktail.Measurements[cocktail.Measurements.Count()+l]);
+                }*/
 
-            }*/
 
-            
+            }
+
+
+            //for(int i = 0; i < cocktail.Measurements.Count(); i++)
+            //{
+            //    bool allowedToAdd = true;
+            //    for (int k=0 ; k<orgCocktail.Measurements.Count() ; k++){
+            //        if (cocktail.Measurements[i].ingredient.Name == orgCocktail.Measurements[k].ingredient.Name)
+            //        {
+            //            //only change the number of measurement
+            //            cocktail.Measurements[i].measurements = orgCocktail.Measurements[k].measurements;
+            //            allowedToAdd = false;
+            //        }
+            //    }
+            //    if(allowedToAdd == true)
+            //    {
+            //        orgCocktail.Measurements.Add(cocktail.Measurements[i]);
+            //    }
+
+
+            //}
+
+
             recipesContext.SaveChanges();
             return Ok(orgCocktail);
 
@@ -104,9 +129,14 @@ namespace Cocktail_API.Controllers
         [HttpDelete]
         public IActionResult DeleteCocktail(int id)
         {
-            var cocktail = recipesContext.Cocktails.Find(id);
+            var cocktail = recipesContext.Cocktails.Where(d=> d.Id == id).Include(cocktail => cocktail.Measurements).ThenInclude(d => d.ingredient).First();
             if (cocktail == null)
                 return NotFound();
+            
+            for( int i = 0; i < cocktail.Measurements.Count(); i++)
+            {
+                recipesContext.Measurements.Where(d => d.measurements == cocktail.Measurements[i].measurements);
+            }
             recipesContext.Cocktails.Remove(cocktail);
             recipesContext.SaveChanges();
             return NoContent();
@@ -117,15 +147,24 @@ namespace Cocktail_API.Controllers
         [HttpGet]
         public IActionResult getCocktailsFromId(int id)
         {
-            var cocktail = recipesContext.Cocktails.Where(d => d.Id == id).Include(cocktail => cocktail.Measurements).ThenInclude(d => d.ingredient).Include(cocktail => cocktail.Inventor);
+            var cocktail = recipesContext.Cocktails.Where(d => d.Id == id).Include(cocktail => cocktail.Measurements).ThenInclude(d => d.ingredient).Include(cocktail => cocktail.Inventor).First();
             if (cocktail == null)
                 return NotFound();
             return Ok(cocktail);
         }
-        //[Route("byName")]
-        //[Authorize]
+
+        [Route("getMeasurements")]
         [HttpGet]
-        public IQueryable getCocktails(string name, string sort, int? page, string dir = "asc",  int length = 2)
+        public string getM()
+        {
+            var cocktail = recipesContext.Cocktails.Where(d => d.Id == 1).Include(cocktail => cocktail.Measurements).ThenInclude(d => d.ingredient).Include(cocktail => cocktail.Inventor).First();
+
+            return cocktail.Measurements.Count().ToString();
+        }
+        //[Route("byName")]
+        [Authorize]
+        [HttpGet]
+        public IQueryable getCocktails(string name, string sort, int? page, string dir = "asc",  int length = 100)
         {
             IQueryable<Cocktail> query = recipesContext.Cocktails.Include(cocktail => cocktail.Measurements).ThenInclude(d => d.ingredient).Include(cocktail => cocktail.Inventor);
 

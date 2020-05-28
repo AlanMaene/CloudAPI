@@ -34,10 +34,16 @@ namespace Cocktail_API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            //services.AddDbContext<RecipesContext>(
+            //    options => options.UseSqlServer(
+            //        Configuration.GetConnectionString("DefaultConnection")
+            //        )
+            //);
+
             services.AddDbContext<RecipesContext>(
-                options => options.UseSqlServer(
+                options => options.UseMySQL(
                     Configuration.GetConnectionString("DefaultConnection")
-                    )
+                )
             );
 
             services.AddCors(o => o.AddPolicy(name: MyAllowSpecificOrigins, builder =>
