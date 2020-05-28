@@ -41,10 +41,6 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "EntityFramework": {
-              "target": "Package",
-              "version": "[6.4.0, )"
-            },
             "Google.Apis": {
               "target": "Package",
               "version": "[1.45.0, )"
@@ -52,10 +48,6 @@
             "Google.Apis.Auth": {
               "target": "Package",
               "version": "[1.41.1, )"
-            },
-            "Microsoft.AspNet.Providers.Core": {
-              "target": "Package",
-              "version": "[2.0.0, )"
             },
             "Microsoft.AspNetCore.Authentication.Google": {
               "target": "Package",

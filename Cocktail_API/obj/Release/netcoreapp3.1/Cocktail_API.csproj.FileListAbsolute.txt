@@ -3,13 +3,10 @@ C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\Cocktail_API.exe
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\app.yaml
-C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\EntityFramework.SqlServer.dll
-C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\EntityFramework.dll
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\Google.Apis.dll
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\Google.Apis.Auth.PlatformServices.dll
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\Google.Apis.Auth.dll
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\Google.Apis.Core.dll
-C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\System.Web.Providers.dll
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Google.dll
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
@@ -52,14 +49,12 @@ C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\NuGet.Frameworks.dll
-C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\System.CodeDom.dll
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\System.Composition.AttributedModel.dll
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\System.Composition.Convention.dll
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\System.Composition.Hosting.dll
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\System.Composition.Runtime.dll
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\System.Composition.TypedParts.dll
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
-C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\System.Data.SqlClient.dll
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\System.Runtime.Caching.dll
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
@@ -120,8 +115,6 @@ C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\runtimes\win-x64\native\sni.dll
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\runtimes\win-x86\native\sni.dll
-C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\alanm\Documents\AP\AP\SEM_4\CouldAPI\CloudAPI\Cocktail_API\bin\Release\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll

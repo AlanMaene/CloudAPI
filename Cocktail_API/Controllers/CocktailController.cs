@@ -3,13 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Model;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using static Google.Apis.Auth.JsonWebToken;
-using static Google.Apis.Auth.GoogleJsonWebSignature;
-using System.Web.Providers.Entities;
-using Google.Apis.Auth;
 
 namespace Cocktail_API.Controllers
 {
